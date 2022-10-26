@@ -3,7 +3,7 @@
 
 
 let weather = {
-    apiKey: "", // API key
+    apiKey: "", // API key inside the quotes
 
 
     fetchWeather: function (city) {
@@ -23,18 +23,17 @@ let weather = {
     },
 
     displayWeather: function (data) {
-        const { name } = data; // getting the name of the city
-        const { icon, description: description } = data.weather[0]; // getting the weather icon and description
-        const { temp, humidity } = data.main; // getting the temperature and humidity
-        const { speed } = data.wind; // getting the wind speed
-        document.querySelector(".city").innerHTML = "Weather in " + name;  // displaying the name of the city
-        document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png"; // displaying the weather icon
-        document.querySelector(".description").innerHTML = description; // displaying the weather description
-        document.querySelector(".temp").innerHTML = "Temp " + temp + "&deg;C"; // displaying the temperature
-        document.querySelector(".humidity").innerHTML = "Humidity is " + humidity + "%"; // displaying the humidity
-        document.querySelector(".windspeed").innerHTML = "Wind Speed " + speed + "m/s"; // displaying the wind speed
-        // document.querySelector(".weather").classList.remove("loading"); // removing the loading class
-        // document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')"; // getting the background image
+        const { name } = data;
+        const { icon, description: description } = data.weather[0];
+        const { temp, humidity } = data.main;
+        const { speed } = data.wind;
+        document.querySelector(".city").innerHTML = "Weather in " + name;
+        document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
+        document.querySelector(".description").innerHTML = description;
+        document.querySelector(".temp").innerHTML = "Temp " + temp + "&deg;C";
+        document.querySelector(".humidity").innerHTML = "Humidity is " + humidity + "%";
+        document.querySelector(".windspeed").innerHTML = "Wind Speed " + speed + "m/s";
+
 
         if
             (description == "clear sky") {
@@ -96,10 +95,10 @@ document
     .addEventListener("keyup", function (event) {
         if (event.key == "Enter") {
             weather.search();
-            document.querySelector(".search-bar").value = "" // clearing the search bar after searching
+            document.querySelector(".search-bar").value = ""
         }
     });
 
-weather.fetchWeather("Trollhättan");
+weather.fetchWeather("Sweden");
 
 
